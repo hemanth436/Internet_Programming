@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
-    <meta name="description" content="A professional futuristic welcome page featuring a dark neon background, translucent glassmorphism, and smooth CSS scrolling highlights.">
+    <meta name="description" content="A professional, high-end landing page built using CSS Grid, Cambria typography, dynamic content sliders, and gradient-masked image showcases.">
     <style>
-        /* Dark Cyber Glassmorphism Theme & Variables */
+        /* Professional Premium Design Tokens */
         :root {
-            --card-bg: rgba(11, 15, 25, 0.65); /* Translucent dark slate */
-            --border-color: rgba(255, 255, 255, 0.08);
+            /* Colors */
+            --bg-gradient-start: #f3f8fc; /* Beautiful Alice-Blue variant */
+            --bg-gradient-end: #e5effa;
+            --card-background: #ffffff;
+            --border-color: #e2e8f0;
             
             /* Text Tones */
-            --text-heading: #ffffff; /* White */
-            --text-body: #cbd5e1;    /* Slate 300 */
-            --text-muted: #94a3b8;   /* Slate 400 */
+            --text-heading: #0f172a; /* Slate 900 */
+            --text-body: #334155;    /* Slate 700 */
+            --text-muted: #64748b;   /* Slate 500 */
             
-            /* Primary Accents (Cyan/Teal Neon Palette to match background) */
-            --primary-cyan: #06b6d4; /* Cyan 500 */
-            --gradient-cyan-start: #06b6d4;
-            --gradient-cyan-end: #0891b2;
-            --gradient-cyan-hover: #0e7490;
+            /* Primary Accents (Blue Palette) */
+            --primary-blue: #1e40af; /* Blue 800 */
+            --gradient-blue-start: #2563eb; /* Blue 600 */
+            --gradient-blue-end: #1d4ed8;   /* Blue 700 */
+            --gradient-blue-hover: #1e40af; /* Blue 800 */
             
             --white: #ffffff;
             --text-size: 14px; /* Specified font size: 14 */
@@ -36,13 +39,7 @@
             font-family: 'Cambria', Georgia, serif;
             font-size: var(--text-size);
             color: var(--text-body);
-            
-            /* Background Image with Dark Overlay */
-            background: 
-                linear-gradient(rgba(11, 15, 25, 0.45), rgba(11, 15, 25, 0.55)),
-                url('images/bg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            
+            background: radial-gradient(circle at top, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
             min-height: 100vh;
             display: grid;
             grid-template-rows: auto 1fr auto;
@@ -62,7 +59,7 @@
             font-size: 36px;
             font-weight: normal;
             color: var(--text-heading);
-            background: linear-gradient(135deg, var(--text-heading) 40%, var(--primary-cyan));
+            background: linear-gradient(135deg, var(--text-heading) 40%, var(--primary-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
@@ -70,10 +67,10 @@
         }
 
         header p {
-            font-size: 11px;
-            font-weight: bold;
-            color: var(--primary-cyan);
-            letter-spacing: 2.5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
@@ -90,21 +87,19 @@
             text-align: center;
         }
 
-        /* Glassmorphic Content Card */
+        /* Glassmorphic/Minimal Content Card */
         .content-card {
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
             width: 100%;
             padding: 45px;
-            background: var(--card-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            background: var(--card-background);
             border-radius: 16px;
             border: 1px solid var(--border-color);
             box-shadow: 
-                0 10px 40px rgba(0, 0, 0, 0.4),
-                0 0 20px rgba(6, 182, 212, 0.05); /* Subtle cyber glow */
+                0 10px 25px -5px rgba(15, 23, 42, 0.04), 
+                0 8px 10px -6px rgba(15, 23, 42, 0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             justify-items: center;
         }
@@ -112,8 +107,8 @@
         .content-card:hover {
             transform: translateY(-2px);
             box-shadow: 
-                0 20px 50px rgba(0, 0, 0, 0.6),
-                0 0 30px rgba(6, 182, 212, 0.1);
+                0 20px 35px -10px rgba(15, 23, 42, 0.06), 
+                0 10px 15px -8px rgba(15, 23, 42, 0.06);
         }
 
         .content-card h2 {
@@ -154,9 +149,9 @@
             transform: translateY(-5px);
         }
 
-        /* Button Styling - Cyan/Teal Gradient with White Text */
+        /* Button Styling - Sapphire Gradient with White Text */
         .btn-welcome {
-            background: linear-gradient(135deg, var(--gradient-cyan-start) 0%, var(--gradient-cyan-end) 100%);
+            background: linear-gradient(135deg, var(--gradient-blue-start) 0%, var(--gradient-blue-end) 100%);
             color: var(--white);
             font-family: 'Cambria', Georgia, serif;
             font-size: var(--text-size);
@@ -165,13 +160,13 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
             transition: all 0.2s ease-in-out;
         }
 
         .btn-welcome:hover {
-            background: linear-gradient(135deg, var(--gradient-cyan-end) 0%, var(--gradient-cyan-hover) 100%);
-            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+            background: linear-gradient(135deg, var(--gradient-blue-end) 0%, var(--gradient-blue-hover) 100%);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
             transform: translateY(-1px);
         }
 
@@ -228,19 +223,13 @@
             transform: translateY(0);
         }
 
-        /* Infinite Image Scroller with Gradient Fade Mask & Glassmorphic container */
+        /* Infinite Image Scroller with Gradient Fade Mask */
         .scroller {
             overflow: hidden;
             width: 100%;
-            padding: 15px 0;
+            padding: 10px 0;
             display: flex;
             align-items: center;
-            background: rgba(11, 15, 25, 0.4);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             /* Linear gradient mask fades the scroll at the left and right edges */
             mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
@@ -262,17 +251,16 @@
             height: 140px;
             border-radius: 8px;
             object-fit: cover;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.03);
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: grayscale(20%);
         }
 
         .marquee-image:hover {
-            transform: scale(1.03);
-            border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 
-                0 6px 18px rgba(0, 0, 0, 0.4),
-                0 0 10px rgba(6, 182, 212, 0.2);
+            filter: grayscale(0%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
         }
 
         /* Scroll Animation Keyframes */
@@ -316,7 +304,7 @@
     <!-- Header Grid Element -->
     <header>
         <h1>Welcome to My Website</h1>
-        <p>Premium Cyber Interface</p>
+        <p>Premium Interface Showcase</p>
     </header>
 
     <!-- Main Grid Box Layout -->
@@ -340,7 +328,7 @@
             <div class="slider-wrapper">
                 <div class="slide-text active">Welcome to My Website — Experience a professional, modern layout.</div>
                 <div class="slide-text">Clean typography styled with Cambria serif font at 14px size.</div>
-                <div class="slide-text">Futuristic glassmorphic interface and cyan beam highlights.</div>
+                <div class="slide-text">Premium card interactions and crisp border shadows.</div>
                 <div class="slide-text">Smooth transition animations configured for elegant interaction.</div>
             </div>
 
