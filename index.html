@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    <meta name="description" content="A professional welcome page featuring a dynamic colorful background, glassmorphism, and smooth CSS scrolling showcase.">
+    <style>
+        /* Colorful Glassmorphism Theme & Variables */
+        :root {
+            --card-bg: rgba(255, 255, 255, 0.55);
+            --text-main: #1e1b4b; /* Deep indigo */
+            --text-muted: #4338ca; /* Indigo */
+            
+            /* UI Theme Tones */
+            --primary-indigo: #1e1b4b;
+            --button-indigo: #4f46e5;
+            --button-indigo-hover: #4338ca;
+            --white: #ffffff;
+            
+            --text-size: 14px; /* Specified font size: 14 */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cambria', Georgia, serif;
+            font-size: var(--text-size);
+            color: var(--text-main);
+            
+            /* Animated Colorful Background */
+            background: linear-gradient(-45deg, #a5b4fc, #fbcfe8, #99f6e4, #fed7aa, #c7d2fe);
+            background-size: 300% 300%;
+            animation: gradientBG 20s ease infinite;
+            
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            justify-items: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Background animation keyframe */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            padding: 40px 20px 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            color: var(--primary-indigo);
+            margin-bottom: 8px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Grid Layout Main Container */
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            justify-items: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Glassmorphic Content Card */
+        .content-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+            padding: 40px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 40px rgba(31, 38, 135, 0.06);
+            justify-items: center;
+        }
+
+        .content-card h2 {
+            font-size: 20px;
+            color: var(--primary-indigo);
+            font-weight: normal;
+        }
+
+        /* Interactive Quote Section */
+        .quote-container {
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--text-main);
+            max-width: 600px;
+            margin-bottom: 8px;
+        }
+
+        .quote-author {
+            font-size: var(--text-size);
+            font-weight: bold;
+            color: var(--text-muted);
+        }
+
+        .fade-out {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        /* Button Styling - Indigo with White Text */
+        .btn-welcome {
+            background-color: var(--button-indigo);
+            color: var(--white);
+            font-family: 'Cambria', Georgia, serif;
+            font-size: var(--text-size);
+            font-weight: bold;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-welcome:hover {
+            background-color: var(--button-indigo-hover);
+            box-shadow: 0 6px 18px rgba(79, 70, 229, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-welcome:active {
+            transform: translateY(1px);
+        }
+
+        /* Professional Scrolling Section */
+        .showcase-section {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 8px;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* Text Cross-Fade Slider (Professional Scrolling) */
+        .slider-wrapper {
+            position: relative;
+            height: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .slide-text {
+            font-size: 14px;
+            color: var(--text-main);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            position: absolute;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .slide-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Infinite Image Scroller with Gradient Fade Mask & Glassmorphic container */
+        .scroller {
+            overflow: hidden;
+            width: 100%;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            /* Linear gradient mask fades the scroll at the left and right edges */
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .scroller__inner {
+            display: flex;
+            gap: 30px;
+            width: max-content;
+            animation: scroll 40s linear infinite; /* Very slow, elegant scroll */
+        }
+
+        .scroller:hover .scroller__inner {
+            animation-play-state: paused;
+        }
+
+        .marquee-image {
+            width: 220px;
+            height: 140px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .marquee-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Scroll Animation Keyframes */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-50% - 15px)); /* Shifts left by exactly half the container width plus gap margin */
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            width: 100%;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 40px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 24px;
+            }
+            .content-card {
+                padding: 30px 20px;
+            }
+            .marquee-image {
+                width: 160px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Grid Element -->
+    <header>
+        <h1>Welcome to My Website</h1>
+        <p>Interactive Experience & Creative Design</p>
+    </header>
+
+    <!-- Main Grid Box Layout -->
+    <main class="main-container">
+        
+        <!-- Center-Aligned Content Box -->
+        <section class="content-card">
+            <h2>Design Inspiration of the Day</h2>
+            <div class="quote-container" id="quoteContainer">
+                <p class="quote-text" id="quoteText">“Simplicity is the ultimate sophistication.”</p>
+                <p class="quote-author" id="quoteAuthor">— Leonardo da Vinci</p>
+            </div>
+            <button class="btn-welcome" onclick="generateQuote()">Inspire Me</button>
+        </section>
+
+        <!-- Professional Scrolling Section -->
+        <section class="showcase-section">
+            
+            <div class="section-label">Latest Insights</div>
+            <!-- Professional Text Cross-Fade Slider -->
+            <div class="slider-wrapper">
+                <div class="slide-text active">Welcome to My Website — Experience a professional, modern layout.</div>
+                <div class="slide-text">Clean typography styled with Cambria serif font at 14px size.</div>
+                <div class="slide-text">Dynamic glassmorphic containers displaying vivid moving mesh gradients.</div>
+                <div class="slide-text">Smooth transition animations configured for elegant interaction.</div>
+            </div>
+
+            <div class="section-label">Portfolio Gallery</div>
+            <!-- Infinite Image Scroller with Gradient Fades -->
+            <div class="scroller">
+                <div class="scroller__inner">
+                    <img src="images/card1.png" alt="Wave Design" class="marquee-image">
+                    <img src="images/card2.png" alt="Geometric Tech Design" class="marquee-image">
+                    <img src="images/card3.png" alt="Fluid Harmony Art Design" class="marquee-image">
+                    <!-- Duplicate items for seamless infinite loop scroll -->
+                    <img src="images/card1.png" alt="Wave Design" class="marquee-image">
+                    <img src="images/card2.png" alt="Geometric Tech Design" class="marquee-image">
+                    <img src="images/card3.png" alt="Fluid Harmony Art Design" class="marquee-image">
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer Grid Element -->
+    <footer>
+        <p>&copy; 2026 Welcome to My Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Design wisdom array
+        const quotes = [
+            { text: "Simplicity is the ultimate sophistication.", author: "Leonardo da Vinci" },
+            { text: "Good design is as little design as possible.", author: "Dieter Rams" },
+            { text: "Make it simple, but significant.", author: "Don Draper" },
+            { text: "Details are not the details. They make the design.", author: "Charles Eames" },
+            { text: "Design is not just what it looks like. Design is how it works.", author: "Steve Jobs" },
+            { text: "Simplicity is about subtracting the obvious and adding the meaningful.", author: "John Maeda" },
+            { text: "Clean code always looks like it was written by someone who cares.", author: "Michael Feathers" }
+        ];
+
+        let currentIdx = 0;
+
+        function generateQuote() {
+            const container = document.getElementById("quoteContainer");
+            const textElem = document.getElementById("quoteText");
+            const authorElem = document.getElementById("quoteAuthor");
+            
+            container.classList.add("fade-out");
+            
+            setTimeout(() => {
+                let nextIdx;
+                do {
+                    nextIdx = Math.floor(Math.random() * quotes.length);
+                } while (nextIdx === currentIdx);
+                
+                currentIdx = nextIdx;
+                textElem.textContent = `“${quotes[currentIdx].text}”`;
+                authorElem.textContent = `— ${quotes[currentIdx].author}`;
+                
+                container.classList.remove("fade-out");
+            }, 400);
+        }
+
+        // Professional Text Cross-Fade Slider Logic
+        const slides = document.querySelectorAll('.slide-text');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change text slide every 4.5 seconds
+        setInterval(nextSlide, 4500);
+    </script>
+</body>
+</html>
