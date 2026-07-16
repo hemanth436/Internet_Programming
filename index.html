@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
-    <meta name="description" content="A professional, high-end landing page built using CSS Grid, Cambria typography, dynamic content sliders, and gradient-masked image showcases.">
+    <meta name="description" content="A professional, high-end landing page built using CSS Grid, featuring a rain-on-glass background and clean glassmorphic container layout.">
     <style>
-        /* Professional Premium Design Tokens */
+        /* Rain Glassmorphism Theme & Variables */
         :root {
-            /* Colors */
-            --bg-gradient-start: #f3f8fc; /* Beautiful Alice-Blue variant */
-            --bg-gradient-end: #e5effa;
-            --card-background: #ffffff;
-            --border-color: #e2e8f0;
+            --card-bg: rgba(255, 255, 255, 0.72);
+            --border-color: rgba(255, 255, 255, 0.5);
             
             /* Text Tones */
             --text-heading: #0f172a; /* Slate 900 */
-            --text-body: #334155;    /* Slate 700 */
-            --text-muted: #64748b;   /* Slate 500 */
+            --text-body: #1e293b;    /* Slate 800 */
+            --text-muted: #475569;   /* Slate 600 */
             
             /* Primary Accents (Blue Palette) */
-            --primary-blue: #1e40af; /* Blue 800 */
+            --primary-blue: #1d4ed8; /* Blue 700 */
             --gradient-blue-start: #2563eb; /* Blue 600 */
             --gradient-blue-end: #1d4ed8;   /* Blue 700 */
             --gradient-blue-hover: #1e40af; /* Blue 800 */
@@ -39,7 +36,13 @@
             font-family: 'Cambria', Georgia, serif;
             font-size: var(--text-size);
             color: var(--text-body);
-            background: radial-gradient(circle at top, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            
+            /* Rainy window background image with light slate overlay */
+            background: 
+                linear-gradient(rgba(241, 245, 249, 0.25), rgba(226, 232, 240, 0.35)),
+                url('images/rain-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            
             min-height: 100vh;
             display: grid;
             grid-template-rows: auto 1fr auto;
@@ -94,12 +97,14 @@
             gap: 25px;
             width: 100%;
             padding: 45px;
-            background: var(--card-background);
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 16px;
             border: 1px solid var(--border-color);
             box-shadow: 
-                0 10px 25px -5px rgba(15, 23, 42, 0.04), 
-                0 8px 10px -6px rgba(15, 23, 42, 0.04);
+                0 10px 25px -5px rgba(15, 23, 42, 0.05), 
+                0 8px 10px -6px rgba(15, 23, 42, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             justify-items: center;
         }
@@ -107,8 +112,8 @@
         .content-card:hover {
             transform: translateY(-2px);
             box-shadow: 
-                0 20px 35px -10px rgba(15, 23, 42, 0.06), 
-                0 10px 15px -8px rgba(15, 23, 42, 0.06);
+                0 20px 35px -10px rgba(15, 23, 42, 0.08), 
+                0 10px 15px -8px rgba(15, 23, 42, 0.08);
         }
 
         .content-card h2 {
@@ -160,13 +165,13 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
             transition: all 0.2s ease-in-out;
         }
 
         .btn-welcome:hover {
             background: linear-gradient(135deg, var(--gradient-blue-end) 0%, var(--gradient-blue-hover) 100%);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
             transform: translateY(-1px);
         }
 
@@ -223,13 +228,19 @@
             transform: translateY(0);
         }
 
-        /* Infinite Image Scroller with Gradient Fade Mask */
+        /* Infinite Image Scroller with Gradient Fade Mask & Glassmorphic container */
         .scroller {
             overflow: hidden;
             width: 100%;
-            padding: 10px 0;
+            padding: 15px 0;
             display: flex;
             align-items: center;
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             /* Linear gradient mask fades the scroll at the left and right edges */
             mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
@@ -304,7 +315,7 @@
     <!-- Header Grid Element -->
     <header>
         <h1>Welcome to My Website</h1>
-        <p>Premium Interface Showcase</p>
+        <p>Premium Glassmorphic Showcase</p>
     </header>
 
     <!-- Main Grid Box Layout -->
@@ -328,7 +339,7 @@
             <div class="slider-wrapper">
                 <div class="slide-text active">Welcome to My Website — Experience a professional, modern layout.</div>
                 <div class="slide-text">Clean typography styled with Cambria serif font at 14px size.</div>
-                <div class="slide-text">Premium card interactions and crisp border shadows.</div>
+                <div class="slide-text">Translucent glassmorphic card overlays and light blur aesthetics.</div>
                 <div class="slide-text">Smooth transition animations configured for elegant interaction.</div>
             </div>
 
